@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Hexo搭建 | Jpache’s blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    
+
+    <meta name="description" content="很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搭建 | Jpache’s blog">
+<meta property="og:url" content="http://yoursite.com/2015/12/17/hexo搭建/index.html">
+<meta property="og:site_name" content="Jpache’s blog">
+<meta property="og:description" content="很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/af15588cjw1ez2n27mvplj21kw0p744k.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/af15588cjw1ez2n336xmbj21kw0p7gvj.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af15588cjw1ez2nqwvbwoj20vu0i0dqv.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af15588cjw1ez2nudjjgkj20vs00wgm3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/af15588cjw1ez2o1ygiy4j21kw0p7wla.jpg">
+<meta property="og:updated_time" content="2016-03-18T08:30:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo搭建 | Jpache’s blog">
+<meta name="twitter:description" content="很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/af15588cjw1ez2n27mvplj21kw0p744k.jpg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Jpache’s blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          嗨，我是景鹏博。一名 iOS 开发者。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/JpacheGitHub" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Hexo搭建</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2015-12-17" class="post-meta__date date">2015-12-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/hexo/">hexo</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>  很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。<br>  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一下我踩过的坑，希望大家以后再用可以把这些坑绕过去。</p>
+<a id="more"></a>
+<h2 id="什么是hexo"><a href="#什么是hexo" class="headerlink" title="什么是hexo"></a>什么是hexo</h2><p>  hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的@tommy351。引用@tommy351的话，hero：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A fast, simple &amp; powerful blog framework, powered by Node.js.</span><br><span class="line">快速、简单且功能强大的 Node.js 博客框架。</span><br></pre></td></tr></table></figure></p>
+<p>  类似于jekyll、Octopress、Wordpress，我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。<a href="http://jpache.com" target="_blank" rel="external">本博客</a>即使用hexo创建并托管在github上。<br>  这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。注：本文只适用于Mac，Windows用户如果可以自动纠错也可以对应着试试。</p>
+<p>  好了重点来了，下面开始介绍一下搭建过程：</p>
+<h2 id="域名购买"><a href="#域名购买" class="headerlink" title="域名购买"></a>域名购买</h2><p>  搭建hexo博客是不需要花钱的，但是只是一个本地的博客，如果你想在外网访问到就只能购买域名了，让人开心的是域名并不是太贵，网上有人推荐说域名购买首选Goddady，给出的原因是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在国外，不受国内各种干扰。</span><br><span class="line">国外域名商中唯一支持支付宝付款的。</span><br><span class="line">价格不高，还经常有优惠。</span><br><span class="line">信誉好，口碑好，靠谱。</span><br></pre></td></tr></table></figure></p>
+<p>  然而我个人比较懒，因为说Goddady是全英文的，想想还是在国内网站买一个算了，个人用的新网，用着还不错。<br>  购买好域名之后就要给域名配置DNS解析了，新网为例，进入域名管理，选中域名后进行如下操作：<br><img src="http://ww3.sinaimg.cn/large/af15588cjw1ez2n27mvplj21kw0p744k.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/af15588cjw1ez2n336xmbj21kw0p7gvj.jpg" alt=""><br>  域名栏没什么好说的，IP地址为GitHub的IP地址，写一样的就可以了。</p>
+<h2 id="创建GitHub仓库"><a href="#创建GitHub仓库" class="headerlink" title="创建GitHub仓库"></a>创建GitHub仓库</h2><p>  这个相信愿意搞这么一个博客的早已经知道怎么创建，就不多说了。网上有人说仓库名字一定要创建成“你的GitHub用户名.github.io”，也有人说随意创建，我用的是第一种，大家有兴趣可以试试第二种。</p>
+<h2 id="下载Node-js"><a href="#下载Node-js" class="headerlink" title="下载Node.js"></a>下载Node.js</h2><p>  因为hexo是基于Node.js的所以当然要下载安装Node.js。<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js传送门</a>。跟着提示安装就可以了。</p>
+<h2 id="搭建hexo"><a href="#搭建hexo" class="headerlink" title="搭建hexo"></a>搭建hexo</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>  前面的准备工作做好了之后就可以打开终端开始hexo配置了<br>  在终端执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>  会吧啦吧啦执行一大堆操作。完成后在你喜欢的地方创建个你喜欢的文件夹吧。终端进入那个文件夹相信大家都会的。<br>  然后再这个文件夹内执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>  此处可能会有警告，说权限不足之类的。不用管，至于为什么不在前面加上sudo，也是我重新搭建好几次之后得出的结果，加上sudo确实不会有任何的警告，但是生成的多有文件都会需要访问权限，不能直接修改，对于以后写文章很不方便，虽然终端vim和vi很强大，但是毕竟不能用鼠标，不能复制粘贴。而不加sudo的话，我们可以不在终端，直接在外面用Xcode打开，熟悉的界面写起来还是很舒服的。上面执行完之后开始安装依赖包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h3 id="本地查看"><a href="#本地查看" class="headerlink" title="本地查看"></a>本地查看</h3><p>  到这步为止，让人开心的是我们终于可以看见我们搭建的本地博客了，在终端执行下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>  可能会看见类似下面这样的一大堆操作：<br><img src="http://ww2.sinaimg.cn/large/af15588cjw1ez2nqwvbwoj20vu0i0dqv.jpg" alt=""><br>  那就说明你成功了，再执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww2.sinaimg.cn/large/af15588cjw1ez2nudjjgkj20vs00wgm3.jpg" alt=""><br>  会看见提示，这时候用浏览器打开0.0.0.0:4000就可以看见你的博客了。</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>  接下来就要吧你的博客部署到GitHub上了，编辑你刚刚创建的文件夹中的_config.yml文件，下面代码的位置在此文件的最下面。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/JpacheGitHub/JpacheGitHub.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>  注意，在所有的冒号后面都必须有一个半角的空格，repository后面换成你的地址就可以了，如下图，Copy后粘在repository后面。<br><img src="http://ww4.sinaimg.cn/large/af15588cjw1ez2o1ygiy4j21kw0p7wla.jpg" alt=""><br>  完成之后就可以：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">sudo hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>  这里的sudo是必须加的，不然不会通过。<br>  此时的sudo hexo deploy可能不会通过，解决方法为执行以下指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>  执行后就可以正常配置了。<br>  接下来需要去自己的网站进行域名设置。不同的网站不同的设置方式，对于hexo，进入source文件夹，创建名为CNAME的文件，编辑：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jpache.com</span><br></pre></td></tr></table></figure></p>
+<p>  到这，基本的博客就搭建好了，也可以外网访问了。</p>
+<p>hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo generate<br>hexo d == hexo deploy<br>hexo s == hexo server<br>hexo n == hexo new</p>
+
+  </section>
+
+  
+  
+  
+
+<section class="post-comments">
+    
+
+<nav class="cover-navigation navigation--social">
+  <div class="ds-share" data-thread-key="此处请替换为当前文章的thread-key" data-title=““ data-images="此处请替换为分享时显示的图片的链接地址" data-content="" data-url="/<">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-32">
+      	
+
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat"></a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo"></a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone"></a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt"></a></li>
+        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);"></a></li>
+      	
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+</nav>
+
+
+    <div class="ds-thread" data-thread-key="2015/12/17/hexo搭建/"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"jpache"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | <a href="https://www.jpache.com">Jpache’s blog</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
