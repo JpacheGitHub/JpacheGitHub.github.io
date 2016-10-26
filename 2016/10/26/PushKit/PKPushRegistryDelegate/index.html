@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jpache.com/2016/10/26/PushKit/PKPushRegistryDelegate/index.html">
 <meta property="og:site_name" content="Jpache’s blog">
 <meta property="og:description" content="PKPushRegistryDelegate 定义了 push registry 对象必须实现的方法. 这些方法将会在 token 失效时, 需要更新 token 时和收到远程推送时被调用.">
-<meta property="og:updated_time" content="2016-10-26T13:17:11.000Z">
+<meta property="og:updated_time" content="2016-10-26T13:39:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PKPushRegistryDelegate">
 <meta name="twitter:description" content="PKPushRegistryDelegate 定义了 push registry 对象必须实现的方法. 这些方法将会在 token 失效时, 需要更新 token 时和收到远程推送时被调用.">
@@ -286,7 +286,7 @@
       
         <p>PKPushRegistryDelegate &#x5B9A;&#x4E49;&#x4E86; push registry &#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;. &#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5C06;&#x4F1A;&#x5728; token &#x5931;&#x6548;&#x65F6;, &#x9700;&#x8981;&#x66F4;&#x65B0; token &#x65F6;&#x548C;&#x6536;&#x5230;&#x8FDC;&#x7A0B;&#x63A8;&#x9001;&#x65F6;&#x88AB;&#x8C03;&#x7528;. </p>
 <a id="more"></a>
-<h1 id="symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h1><h2 id="responding-to-push-registry-events"><a href="#Responding-to-Push-Registry-Events" class="headerlink" title="Responding to Push Registry Events"></a>Responding to Push Registry Events</h2><h3 id="pushregistrydidinvalidatepushtokenfortype"><a href="#pushRegistry-didInvalidatePushTokenForType" class="headerlink" title="pushRegistry:didInvalidatePushTokenForType:"></a>pushRegistry:didInvalidatePushTokenForType:</h3><p>&#x901A;&#x77E5; delegate &#x63A8;&#x9001; token &#x5931;&#x6548;.</p>
+<h1 id="symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h1><h2 id="responding-to-push-registry-events"><a href="#Responding-to-Push-Registry-Events" class="headerlink" title="Responding to Push Registry Events"></a>Responding to Push Registry Events</h2><h3 id="pushregistrydidinvalidatepushtokenfortype"><a href="#pushRegistry-didInvalidatePushTokenForType" class="headerlink" title="pushRegistry:didInvalidatePushTokenForType:"></a><font color="#5b2c97">pushRegistry:didInvalidatePushTokenForType:</font></h3><p>&#x901A;&#x77E5; delegate &#x63A8;&#x9001; token &#x5931;&#x6548;.</p>
 <h4 id="declaration"><a href="#Declaration" class="headerlink" title="Declaration"></a>Declaration</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)pushRegistry:(PKPushRegistry *)registry didInvalidatePushTokenForType:(PKPushType)<span class="built_in">type</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h4><ul>
 <li><p>registry</p>
@@ -298,7 +298,7 @@
 </ul>
 <h4 id="discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h4><p>&#x5982;&#x679C;&#x4E0A;&#x4E00;&#x4E2A;&#x63A8;&#x9001; token &#x5F88;&#x957F;&#x65F6;&#x95F4;&#x6CA1;&#x6709;&#x4F7F;&#x7528;, &#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x4F1A;&#x88AB;&#x8C03;&#x7528;, &#x8FD9;&#x79CD;&#x53CD;&#x9988;&#x53EF;&#x4EE5;&#x66F4;&#x65B0; App &#x7684;&#x670D;&#x52A1;&#x5668;, &#x4F7F;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x518D;&#x5411;&#x6B64;&#x8BBE;&#x5907;&#x53D1;&#x9001;&#x63A8;&#x9001;.</p>
 <hr>
-<h3 id="pushregistrydidreceiveincomingpushwithpayloadfortype"><a href="#pushRegistry-didReceiveIncomingPushWithPayload-forType" class="headerlink" title="pushRegistry:didReceiveIncomingPushWithPayload:forType:"></a>pushRegistry:didReceiveIncomingPushWithPayload:forType:</h3><p><strong>Required</strong>. &#x901A;&#x77E5; delegate &#x6536;&#x5230;&#x8FDC;&#x7A0B;&#x63A8;&#x9001;.</p>
+<h3 id="pushregistrydidreceiveincomingpushwithpayloadfortype"><a href="#pushRegistry-didReceiveIncomingPushWithPayload-forType" class="headerlink" title="pushRegistry:didReceiveIncomingPushWithPayload:forType:"></a><font color="#5b2c97">pushRegistry:didReceiveIncomingPushWithPayload:forType:</font></h3><p><strong>Required</strong>. &#x901A;&#x77E5; delegate &#x6536;&#x5230;&#x8FDC;&#x7A0B;&#x63A8;&#x9001;.</p>
 <h4 id="declaration"><a href="#Declaration-1" class="headerlink" title="Declaration"></a>Declaration</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)pushRegistry:(PKPushRegistry *)registry </span><br><span class="line">didReceiveIncomingPushWithPayload:(PKPushPayload *)payload </span><br><span class="line">             <span class="keyword">for</span>Type:(PKPushType)<span class="built_in">type</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="parameters"><a href="#Parameters-1" class="headerlink" title="Parameters"></a>Parameters</h4><ul>
 <li><p>registry</p>
@@ -313,7 +313,7 @@
 </ul>
 <h4 id="discussion"><a href="#Discussion-1" class="headerlink" title="Discussion"></a>Discussion</h4><p>&#x5F53;&#x6536;&#x5230;&#x6307;&#x5B9A; PKPushType &#x7C7B;&#x578B;&#x7684;&#x63A8;&#x9001;&#x65F6;, &#x6B64;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;.</p>
 <hr>
-<h3 id="pushregistrydidupdatepushcredentialsfortype"><a href="#pushRegistry-didUpdatePushCredentials-forType" class="headerlink" title="pushRegistry:didUpdatePushCredentials:forType:"></a>pushRegistry:didUpdatePushCredentials:forType:</h3><p><strong>Required</strong>. &#x5F53;&#x63A8;&#x9001; token &#x66F4;&#x65B0;&#x65F6;&#x901A;&#x77E5; delegate.</p>
+<h3 id="pushregistrydidupdatepushcredentialsfortype"><a href="#pushRegistry-didUpdatePushCredentials-forType" class="headerlink" title="pushRegistry:didUpdatePushCredentials:forType:"></a><font color="#5b2c97">pushRegistry:didUpdatePushCredentials:forType:</font></h3><p><strong>Required</strong>. &#x5F53;&#x63A8;&#x9001; token &#x66F4;&#x65B0;&#x65F6;&#x901A;&#x77E5; delegate.</p>
 <h4 id="declaration"><a href="#Declaration-2" class="headerlink" title="Declaration"></a>Declaration</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)pushRegistry:(PKPushRegistry *)registry </span><br><span class="line">didUpdatePushCredentials:(PKPushCredentials *)credentials </span><br><span class="line">             <span class="keyword">for</span>Type:(PKPushType)<span class="built_in">type</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="parameters"><a href="#Parameters-2" class="headerlink" title="Parameters"></a>Parameters</h4><ul>
 <li><p>registry</p>
