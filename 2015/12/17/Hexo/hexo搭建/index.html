@@ -1,0 +1,654 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一下我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搭建">
+<meta property="og:url" content="http://jpache.com/2015/12/17/Hexo/hexo搭建/index.html">
+<meta property="og:site_name" content="Jpache’s blog">
+<meta property="og:description" content="很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一下我">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/af15588cjw1ez2n27mvplj21kw0p744k.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/af15588cjw1ez2n336xmbj21kw0p7gvj.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af15588cjw1ez2nqwvbwoj20vu0i0dqv.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af15588cjw1ez2nudjjgkj20vs00wgm3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/af15588cjw1ez2o1ygiy4j21kw0p7wla.jpg">
+<meta property="og:updated_time" content="2016-10-22T16:54:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo搭建">
+<meta name="twitter:description" content="很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一下我">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/af15588cjw1ez2n27mvplj21kw0p744k.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://jpache.com/2015/12/17/Hexo/hexo搭建/"/>
+
+
+  <title> Hexo搭建 | Jpache’s blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jpache’s blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">嗨，我是景鹏博。一名 iOS 开发者。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hexo搭建
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-17T15:10:53+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/17/Hexo/hexo搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Hexo/hexo搭建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x5F88;&#x591A;&#x4EBA;&#x8BF4;&#x535A;&#x5BA2;&#x662F;&#x5F88;&#x597D;&#x7684;&#x63D0;&#x5347;&#x65B9;&#x5F0F;&#xFF0C;&#x9664;&#x4E86;&#x8BB0;&#x5F55;&#xFF0C;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#x5206;&#x4EAB;&#xFF0C;&#x6298;&#x817E;&#x4E86;&#x534A;&#x5929;&#x7EC8;&#x4E8E;&#x7B97;&#x662F;&#x6709;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x6280;&#x672F;&#x662F;&#x9700;&#x8981;&#x6C89;&#x6DC0;&#x7684;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x5199;&#x4E0B;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x5728;&#x5E73;&#x65F6;&#x5728;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x79EF;&#x7D2F;&#x548C;&#x611F;&#x609F;&#xFF0C;&#x53EA;&#x662F;&#x5E0C;&#x671B;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x81EA;&#x5DF1;&#x6210;&#x957F;&#x7684;&#x811A;&#x5370;&#xFF0C;&#x63A5;&#x89E6;iOS&#x65F6;&#x95F4;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x957F;&#xFF0C;&#x5927;&#x725B;&#x8DEF;&#x8FC7;&#x8BF7;&#x4E00;&#x7B11;&#x7F6E;&#x4E4B;&#xFF0C;&#x8C22;&#x5566;&#x3002;<br>  &#x642D;&#x8FD9;&#x4E2A;&#x535A;&#x5BA2;&#x6298;&#x817E;&#x4E86;&#x5927;&#x534A;&#x5929;&#xFF0C;&#x4E0A;&#x7F51;&#x770B;&#x4E86;&#x770B;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x6559;&#x7A0B;&#x90FD;&#x65F6;&#x95F4;&#x6BD4;&#x8F83;&#x4E45;&#x8FDC;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x5F88;&#x591A;&#x90FD;&#x662F;Windows&#x4E0B;&#x7684;&#xFF0C;Mac&#x4E0B;&#x5C31;&#x6709;&#x4E00;&#x4E9B;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x4E86;&#xFF0C;&#x6253;&#x7B97;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x6211;&#x8E29;&#x8FC7;&#x7684;&#x5751;&#xFF0C;&#x5E0C;&#x671B;&#x5927;&#x5BB6;&#x4EE5;&#x540E;&#x518D;&#x7528;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E9B;&#x5751;&#x7ED5;&#x8FC7;&#x53BB;&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;hexo"><a href="#&#x4EC0;&#x4E48;&#x662F;hexo" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;hexo"></a>&#x4EC0;&#x4E48;&#x662F;hexo</h2><p>  hexo&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Node.js&#x7684;&#x9759;&#x6001;&#x535A;&#x5BA2;&#x7A0B;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x751F;&#x6210;&#x9759;&#x6001;&#x7F51;&#x9875;&#x6258;&#x7BA1;&#x5728;github&#x548C;Heroku&#x4E0A;&#x3002;&#x4F5C;&#x8005;&#x662F;&#x6765;&#x81EA;&#x53F0;&#x6E7E;&#x7684;@tommy351&#x3002;&#x5F15;&#x7528;@tommy351&#x7684;&#x8BDD;&#xFF0C;hero&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A fast, simple &amp; powerful blog framework, powered by Node.js.</span><br><span class="line">&#x5FEB;&#x901F;&#x3001;&#x7B80;&#x5355;&#x4E14;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684; Node.js &#x535A;&#x5BA2;&#x6846;&#x67B6;&#x3002;</span><br></pre></td></tr></table></figure></p>
+<p>  &#x7C7B;&#x4F3C;&#x4E8E;jekyll&#x3001;Octopress&#x3001;Wordpress&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;hexo&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x6258;&#x7BA1;&#x5230;github&#x6216;Heroku&#x4E0A;&#xFF0C;&#x7ED1;&#x5B9A;&#x81EA;&#x5DF1;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x7528;markdown&#x5199;&#x6587;&#x7AE0;&#x3002;<a href="http://jpache.com">&#x672C;&#x535A;&#x5BA2;</a>&#x5373;&#x4F7F;&#x7528;hexo&#x521B;&#x5EFA;&#x5E76;&#x6258;&#x7BA1;&#x5728;github&#x4E0A;&#x3002;<br>  &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x514D;&#x8D39;&#x5F00;&#x6E90;&#x7684;&#x535A;&#x5BA2;&#x7A0B;&#x5E8F;&#xFF0C;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x548C;&#x4FEE;&#x6539;&#x3002;&#x4F46;&#x662F;&#x4E0D;&#x540C;&#x4E8E;wordpress&#xFF0C;hexo&#x7531;&#x4E8E;&#x9700;&#x8981;&#x4F7F;&#x7528;Github,Git,Markdown,Node.js&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x597D;&#x591A;&#x63D2;&#x4EF6;&#x3001;widget&#x90FD;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B89;&#x88C5;&#x3001;&#x8BBE;&#x7F6E;&#x3002;&#x6240;&#x4EE5;&#x9002;&#x5408;&#x90A3;&#x4E9B;&#x6709;&#x4E00;&#x5B9A;&#x8BA1;&#x7B97;&#x673A;&#x57FA;&#x7840;&#xFF0C;&#x559C;&#x6B22;&#x6298;&#x817E;&#x7684;&#x4EBA;&#x3002;&#x6CE8;&#xFF1A;&#x672C;&#x6587;&#x53EA;&#x9002;&#x7528;&#x4E8E;Mac&#xFF0C;Windows&#x7528;&#x6237;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x7EA0;&#x9519;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x7740;&#x8BD5;&#x8BD5;&#x3002;</p>
+<p>  &#x597D;&#x4E86;&#x91CD;&#x70B9;&#x6765;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x642D;&#x5EFA;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<h2 id="&#x57DF;&#x540D;&#x8D2D;&#x4E70;"><a href="#&#x57DF;&#x540D;&#x8D2D;&#x4E70;" class="headerlink" title="&#x57DF;&#x540D;&#x8D2D;&#x4E70;"></a>&#x57DF;&#x540D;&#x8D2D;&#x4E70;</h2><p>  &#x642D;&#x5EFA;hexo&#x535A;&#x5BA2;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x82B1;&#x94B1;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728;&#x5916;&#x7F51;&#x8BBF;&#x95EE;&#x5230;&#x5C31;&#x53EA;&#x80FD;&#x8D2D;&#x4E70;&#x57DF;&#x540D;&#x4E86;&#xFF0C;&#x8BA9;&#x4EBA;&#x5F00;&#x5FC3;&#x7684;&#x662F;&#x57DF;&#x540D;&#x5E76;&#x4E0D;&#x662F;&#x592A;&#x8D35;&#xFF0C;&#x7F51;&#x4E0A;&#x6709;&#x4EBA;&#x63A8;&#x8350;&#x8BF4;&#x57DF;&#x540D;&#x8D2D;&#x4E70;&#x9996;&#x9009;Goddady&#xFF0C;&#x7ED9;&#x51FA;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x56FD;&#x5916;&#xFF0C;&#x4E0D;&#x53D7;&#x56FD;&#x5185;&#x5404;&#x79CD;&#x5E72;&#x6270;&#x3002;</span><br><span class="line">&#x56FD;&#x5916;&#x57DF;&#x540D;&#x5546;&#x4E2D;&#x552F;&#x4E00;&#x652F;&#x6301;&#x652F;&#x4ED8;&#x5B9D;&#x4ED8;&#x6B3E;&#x7684;&#x3002;</span><br><span class="line">&#x4EF7;&#x683C;&#x4E0D;&#x9AD8;&#xFF0C;&#x8FD8;&#x7ECF;&#x5E38;&#x6709;&#x4F18;&#x60E0;&#x3002;</span><br><span class="line">&#x4FE1;&#x8A89;&#x597D;&#xFF0C;&#x53E3;&#x7891;&#x597D;&#xFF0C;&#x9760;&#x8C31;&#x3002;</span><br></pre></td></tr></table></figure></p>
+<p>  &#x7136;&#x800C;&#x6211;&#x4E2A;&#x4EBA;&#x6BD4;&#x8F83;&#x61D2;&#xFF0C;&#x56E0;&#x4E3A;&#x8BF4;Goddady&#x662F;&#x5168;&#x82F1;&#x6587;&#x7684;&#xFF0C;&#x60F3;&#x60F3;&#x8FD8;&#x662F;&#x5728;&#x56FD;&#x5185;&#x7F51;&#x7AD9;&#x4E70;&#x4E00;&#x4E2A;&#x7B97;&#x4E86;&#xFF0C;&#x4E2A;&#x4EBA;&#x7528;&#x7684;&#x65B0;&#x7F51;&#xFF0C;&#x7528;&#x7740;&#x8FD8;&#x4E0D;&#x9519;&#x3002;<br>  &#x8D2D;&#x4E70;&#x597D;&#x57DF;&#x540D;&#x4E4B;&#x540E;&#x5C31;&#x8981;&#x7ED9;&#x57DF;&#x540D;&#x914D;&#x7F6E;DNS&#x89E3;&#x6790;&#x4E86;&#xFF0C;&#x65B0;&#x7F51;&#x4E3A;&#x4F8B;&#xFF0C;&#x8FDB;&#x5165;&#x57DF;&#x540D;&#x7BA1;&#x7406;&#xFF0C;&#x9009;&#x4E2D;&#x57DF;&#x540D;&#x540E;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;<br><img src="http://ww3.sinaimg.cn/large/af15588cjw1ez2n27mvplj21kw0p744k.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/af15588cjw1ez2n336xmbj21kw0p7gvj.jpg" alt=""><br>  &#x57DF;&#x540D;&#x680F;&#x6CA1;&#x4EC0;&#x4E48;&#x597D;&#x8BF4;&#x7684;&#xFF0C;IP&#x5730;&#x5740;&#x4E3A;GitHub&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x5199;&#x4E00;&#x6837;&#x7684;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;github&#x4ED3;&#x5E93;"><a href="#&#x521B;&#x5EFA;GitHub&#x4ED3;&#x5E93;" class="headerlink" title="&#x521B;&#x5EFA;GitHub&#x4ED3;&#x5E93;"></a>&#x521B;&#x5EFA;GitHub&#x4ED3;&#x5E93;</h2><p>  &#x8FD9;&#x4E2A;&#x76F8;&#x4FE1;&#x613F;&#x610F;&#x641E;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x535A;&#x5BA2;&#x7684;&#x65E9;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x521B;&#x5EFA;&#xFF0C;&#x5C31;&#x4E0D;&#x591A;&#x8BF4;&#x4E86;&#x3002;&#x7F51;&#x4E0A;&#x6709;&#x4EBA;&#x8BF4;&#x4ED3;&#x5E93;&#x540D;&#x5B57;&#x4E00;&#x5B9A;&#x8981;&#x521B;&#x5EFA;&#x6210;&#x201C;&#x4F60;&#x7684;GitHub&#x7528;&#x6237;&#x540D;.github.io&#x201D;&#xFF0C;&#x4E5F;&#x6709;&#x4EBA;&#x8BF4;&#x968F;&#x610F;&#x521B;&#x5EFA;&#xFF0C;&#x6211;&#x7528;&#x7684;&#x662F;&#x7B2C;&#x4E00;&#x79CD;&#xFF0C;&#x5927;&#x5BB6;&#x6709;&#x5174;&#x8DA3;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;&#x7B2C;&#x4E8C;&#x79CD;&#x3002;</p>
+<h2 id="&#x4E0B;&#x8F7D;nodejs"><a href="#&#x4E0B;&#x8F7D;Node-js" class="headerlink" title="&#x4E0B;&#x8F7D;Node.js"></a>&#x4E0B;&#x8F7D;Node.js</h2><p>  &#x56E0;&#x4E3A;hexo&#x662F;&#x57FA;&#x4E8E;Node.js&#x7684;&#x6240;&#x4EE5;&#x5F53;&#x7136;&#x8981;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;Node.js&#x3002;<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js&#x4F20;&#x9001;&#x95E8;</a>&#x3002;&#x8DDF;&#x7740;&#x63D0;&#x793A;&#x5B89;&#x88C5;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<h2 id="&#x642D;&#x5EFA;hexo"><a href="#&#x642D;&#x5EFA;hexo" class="headerlink" title="&#x642D;&#x5EFA;hexo"></a>&#x642D;&#x5EFA;hexo</h2><h3 id="&#x5B89;&#x88C5;hexo"><a href="#&#x5B89;&#x88C5;hexo" class="headerlink" title="&#x5B89;&#x88C5;hexo"></a>&#x5B89;&#x88C5;hexo</h3><p>  &#x524D;&#x9762;&#x7684;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x597D;&#x4E86;&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x5F00;&#x59CB;hexo&#x914D;&#x7F6E;&#x4E86;<br>  &#x5728;&#x7EC8;&#x7AEF;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>  &#x4F1A;&#x5427;&#x5566;&#x5427;&#x5566;&#x6267;&#x884C;&#x4E00;&#x5927;&#x5806;&#x64CD;&#x4F5C;&#x3002;&#x5B8C;&#x6210;&#x540E;&#x5728;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x5730;&#x65B9;&#x521B;&#x5EFA;&#x4E2A;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5427;&#x3002;&#x7EC8;&#x7AEF;&#x8FDB;&#x5165;&#x90A3;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x90FD;&#x4F1A;&#x7684;&#x3002;<br>  &#x7136;&#x540E;&#x518D;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>  &#x6B64;&#x5904;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x8B66;&#x544A;&#xFF0C;&#x8BF4;&#x6743;&#x9650;&#x4E0D;&#x8DB3;&#x4E4B;&#x7C7B;&#x7684;&#x3002;&#x4E0D;&#x7528;&#x7BA1;&#xFF0C;&#x81F3;&#x4E8E;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x5728;&#x524D;&#x9762;&#x52A0;&#x4E0A;sudo&#xFF0C;&#x4E5F;&#x662F;&#x6211;&#x91CD;&#x65B0;&#x642D;&#x5EFA;&#x597D;&#x51E0;&#x6B21;&#x4E4B;&#x540E;&#x5F97;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x52A0;&#x4E0A;sudo&#x786E;&#x5B9E;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x7684;&#x8B66;&#x544A;&#xFF0C;&#x4F46;&#x662F;&#x751F;&#x6210;&#x7684;&#x591A;&#x6709;&#x6587;&#x4EF6;&#x90FD;&#x4F1A;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#xFF0C;&#x5BF9;&#x4E8E;&#x4EE5;&#x540E;&#x5199;&#x6587;&#x7AE0;&#x5F88;&#x4E0D;&#x65B9;&#x4FBF;&#xFF0C;&#x867D;&#x7136;&#x7EC8;&#x7AEF;vim&#x548C;vi&#x5F88;&#x5F3A;&#x5927;&#xFF0C;&#x4F46;&#x662F;&#x6BD5;&#x7ADF;&#x4E0D;&#x80FD;&#x7528;&#x9F20;&#x6807;&#xFF0C;&#x4E0D;&#x80FD;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x3002;&#x800C;&#x4E0D;&#x52A0;sudo&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x5728;&#x7EC8;&#x7AEF;&#xFF0C;&#x76F4;&#x63A5;&#x5728;&#x5916;&#x9762;&#x7528;Xcode&#x6253;&#x5F00;&#xFF0C;&#x719F;&#x6089;&#x7684;&#x754C;&#x9762;&#x5199;&#x8D77;&#x6765;&#x8FD8;&#x662F;&#x5F88;&#x8212;&#x670D;&#x7684;&#x3002;&#x4E0A;&#x9762;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h3 id="&#x672C;&#x5730;&#x67E5;&#x770B;"><a href="#&#x672C;&#x5730;&#x67E5;&#x770B;" class="headerlink" title="&#x672C;&#x5730;&#x67E5;&#x770B;"></a>&#x672C;&#x5730;&#x67E5;&#x770B;</h3><p>  &#x5230;&#x8FD9;&#x6B65;&#x4E3A;&#x6B62;&#xFF0C;&#x8BA9;&#x4EBA;&#x5F00;&#x5FC3;&#x7684;&#x662F;&#x6211;&#x4EEC;&#x7EC8;&#x4E8E;&#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x6211;&#x4EEC;&#x642D;&#x5EFA;&#x7684;&#x672C;&#x5730;&#x535A;&#x5BA2;&#x4E86;&#xFF0C;&#x5728;&#x7EC8;&#x7AEF;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>  &#x53EF;&#x80FD;&#x4F1A;&#x770B;&#x89C1;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x5927;&#x5806;&#x64CD;&#x4F5C;&#xFF1A;<br><img src="http://ww2.sinaimg.cn/large/af15588cjw1ez2nqwvbwoj20vu0i0dqv.jpg" alt=""><br>  &#x90A3;&#x5C31;&#x8BF4;&#x660E;&#x4F60;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x518D;&#x6267;&#x884C;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww2.sinaimg.cn/large/af15588cjw1ez2nudjjgkj20vs00wgm3.jpg" alt=""><br>  &#x4F1A;&#x770B;&#x89C1;&#x63D0;&#x793A;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;0.0.0.0:4000&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x4F60;&#x7684;&#x535A;&#x5BA2;&#x4E86;&#x3002;</p>
+<h3 id="&#x90E8;&#x7F72;"><a href="#&#x90E8;&#x7F72;" class="headerlink" title="&#x90E8;&#x7F72;"></a>&#x90E8;&#x7F72;</h3><p>  &#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x8981;&#x5427;&#x4F60;&#x7684;&#x535A;&#x5BA2;&#x90E8;&#x7F72;&#x5230;GitHub&#x4E0A;&#x4E86;&#xFF0C;&#x7F16;&#x8F91;&#x4F60;&#x521A;&#x521A;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;_config.yml&#x6587;&#x4EF6;&#xFF0C;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x4F4D;&#x7F6E;&#x5728;&#x6B64;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x4E0B;&#x9762;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/JpacheGitHub/JpacheGitHub.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>  &#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x6240;&#x6709;&#x7684;&#x5192;&#x53F7;&#x540E;&#x9762;&#x90FD;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x534A;&#x89D2;&#x7684;&#x7A7A;&#x683C;&#xFF0C;repository&#x540E;&#x9762;&#x6362;&#x6210;&#x4F60;&#x7684;&#x5730;&#x5740;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;Copy&#x540E;&#x7C98;&#x5728;repository&#x540E;&#x9762;&#x3002;<br><img src="http://ww4.sinaimg.cn/large/af15588cjw1ez2o1ygiy4j21kw0p7wla.jpg" alt=""><br>  &#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">sudo hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>  &#x8FD9;&#x91CC;&#x7684;sudo&#x662F;&#x5FC5;&#x987B;&#x52A0;&#x7684;&#xFF0C;&#x4E0D;&#x7136;&#x4E0D;&#x4F1A;&#x901A;&#x8FC7;&#x3002;<br>  &#x6B64;&#x65F6;&#x7684;sudo hexo deploy&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x901A;&#x8FC7;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x4E3A;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x6307;&#x4EE4;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>  &#x6267;&#x884C;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x914D;&#x7F6E;&#x4E86;&#x3002;<br>  &#x63A5;&#x4E0B;&#x6765;&#x9700;&#x8981;&#x53BB;&#x81EA;&#x5DF1;&#x7684;&#x7F51;&#x7AD9;&#x8FDB;&#x884C;&#x57DF;&#x540D;&#x8BBE;&#x7F6E;&#x3002;&#x4E0D;&#x540C;&#x7684;&#x7F51;&#x7AD9;&#x4E0D;&#x540C;&#x7684;&#x8BBE;&#x7F6E;&#x65B9;&#x5F0F;&#xFF0C;&#x5BF9;&#x4E8E;hexo&#xFF0C;&#x8FDB;&#x5165;source&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x521B;&#x5EFA;&#x540D;&#x4E3A;CNAME&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x7F16;&#x8F91;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jpache.com</span><br></pre></td></tr></table></figure></p>
+<p>  &#x5230;&#x8FD9;&#xFF0C;&#x57FA;&#x672C;&#x7684;&#x535A;&#x5BA2;&#x5C31;&#x642D;&#x5EFA;&#x597D;&#x4E86;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5916;&#x7F51;&#x8BBF;&#x95EE;&#x4E86;&#x3002;</p>
+<p>hexo&#x73B0;&#x5728;&#x652F;&#x6301;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x683C;&#x5F0F;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<br>hexo g == hexo generate<br>hexo d == hexo deploy<br>hexo s == hexo server<br>hexo n == hexo new</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/" rel="prev" title="iOS VoIP (VoIP Push)开发集成">
+                iOS VoIP (VoIP Push)开发集成 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/12/17/Hexo/hexo搭建/"
+     data-title="Hexo搭建"
+     data-content=""
+     data-url="http://jpache.com/2015/12/17/Hexo/hexo搭建/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/17/Hexo/hexo搭建/"
+           data-title="Hexo搭建" data-url="http://jpache.com/2015/12/17/Hexo/hexo搭建/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jpache" />
+          <p class="site-author-name" itemprop="name">Jpache</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JpacheGitHub" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是hexo"><span class="nav-number">1.</span> <span class="nav-text">什么是hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名购买"><span class="nav-number">2.</span> <span class="nav-text">域名购买</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建github仓库"><span class="nav-number">3.</span> <span class="nav-text">创建GitHub仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载nodejs"><span class="nav-number">4.</span> <span class="nav-text">下载Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建hexo"><span class="nav-number">5.</span> <span class="nav-text">搭建hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo"><span class="nav-number">5.1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地查看"><span class="nav-number">5.2.</span> <span class="nav-text">本地查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署"><span class="nav-number">5.3.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jpache</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jpache"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

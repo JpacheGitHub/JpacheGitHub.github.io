@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="VoIP,PushKit," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jpache’s blog">
-<meta property="og:url" content="http://jpache.com/page/2/index.html">
+<meta name="description" content="PKPushPayload 类包含了收到的远程推送的内容和信息.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PKPushPayload">
+<meta property="og:url" content="http://jpache.com/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/index.html">
 <meta property="og:site_name" content="Jpache’s blog">
-<meta property="og:description">
+<meta property="og:description" content="PKPushPayload 类包含了收到的远程推送的内容和信息.">
+<meta property="og:updated_time" content="2016-10-26T13:34:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jpache’s blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="PKPushPayload">
+<meta name="twitter:description" content="PKPushPayload 类包含了收到的远程推送的内容和信息.">
 
 
 
@@ -113,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jpache.com/page/2/"/>
+  <link rel="canonical" href="http://jpache.com/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/"/>
 
 
-  <title> Jpache’s blog </title>
+  <title> PKPushPayload | Jpache’s blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,9 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -216,9 +215,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -238,10 +237,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/05/06/iOS/UI/自定义 TabBarController 封装/" itemprop="url">
-                  自定义 TabBarController 封装
-                </a>
+                PKPushPayload
               
             
           </h1>
@@ -253,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T23:34:24+08:00" content="2016-05-06">
-              2016-05-06
+            <time itemprop="dateCreated" datetime="2016-10-26T20:25:49+08:00" content="2016-10-26">
+              2016-10-26
             </time>
           </span>
 
@@ -264,8 +260,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/06/iOS/UI/自定义 TabBarController 封装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/iOS/UI/自定义 TabBarController 封装/" itemprop="commentsCount"></span>
+                <a href="/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,252 +284,96 @@
       
 
       
-        
-          <p>今天来封装一个自定义的 TabBarController, 来实现类似伴鱼, 微博等 App 的 TabBar 的效果.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/06/iOS/UI/自定义 TabBarController 封装/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+        <p>PKPushPayload &#x7C7B;&#x5305;&#x542B;&#x4E86;&#x6536;&#x5230;&#x7684;&#x8FDC;&#x7A0B;&#x63A8;&#x9001;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x4FE1;&#x606F;.</p>
+<a id="more"></a>
+<h1 id="symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h1><h2 id="payload-properties"><a href="#Payload-properties" class="headerlink" title="Payload properties"></a>Payload properties</h2><h3 id="dictionarypayload"><a href="#dictionaryPayload" class="headerlink" title="dictionaryPayload"></a><font color="#5b2c97">dictionaryPayload</font></h3><p>&#x6536;&#x5230;&#x7684;&#x63A8;&#x9001;&#x6D88;&#x606F;&#x7684;&#x5185;&#x5BB9;.</p>
+<h4 id="declaration"><a href="#Declaration" class="headerlink" title="Declaration"></a>Declaration</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property(<span class="built_in">readonly</span>, copy) NSDictionary *dictionaryPayload;</span><br></pre></td></tr></table></figure>
+<h4 id="discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h4><p>&#x5BF9;&#x4E8E; standard &#x63A8;&#x9001;, &#x8FD9;&#x4E2A;&#x5B57;&#x5178;&#x5FC5;&#x987B;&#x7B26;&#x5408;&#x548C;&#x4E4B;&#x524D;&#x7684; iOS &#x7248;&#x672C;&#x4E00;&#x6837;&#x7684;&#x8981;&#x6C42;. &#x5BF9;&#x4E8E; VoIP &#x63A8;&#x9001;, &#x53D1;&#x9001;&#x8005;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;JOSN&#x6570;&#x636E;&#x683C;&#x5F0F;&#x5728;&#x6570;&#x636E;&#x4E2D;&#x5B9A;&#x4E49;&#x4EFB;&#x4F55;&#x5B57;&#x6BB5;.</p>
+<hr>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a><font color="#5b2c97">type</font></h3><p>&#x6839;&#x636E;&#x6536;&#x5230;&#x7684;&#x63A8;&#x9001;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; NSString &#x7C7B;&#x578B;&#x7684;&#x5E38;&#x6570;.</p>
+<h4 id="declaration"><a href="#Declaration-1" class="headerlink" title="Declaration"></a>Declaration</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property(<span class="built_in">readonly</span>, copy) PKPushType <span class="built_in">type</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="relationships"><a href="#Relationships" class="headerlink" title="Relationships"></a>Relationships</h1><ul>
+<li>&#x7EE7;&#x627F;&#x81EA;NSObject</li>
+</ul>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/" itemprop="url">
-                  iOS VoIP (VoIP Push)开发集成
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-18T15:39:06+08:00" content="2016-03-18">
-              2016-03-18
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/VoIP/" rel="tag">#VoIP</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/PushKit/" rel="tag">#PushKit</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近需要用到 Apple 的 VoIP 服务, 上网翻看了一遍, 能用的不多, 更主要的是能看懂的更少…整理之后, 打算在这里记录一下…</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushCredentials/" rel="next" title="PKPushCredentials">
+                <i class="fa fa-chevron-left"></i> PKPushCredentials
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushRegistry/" rel="prev" title="PKPushRegistry">
+                PKPushRegistry <i class="fa fa-chevron-right"></i>
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2015/12/17/Hexo/hexo搭建/" itemprop="url">
-                  Hexo搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-17T15:10:53+08:00" content="2015-12-17">
-              2015-12-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/17/Hexo/hexo搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Hexo/hexo搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>很多人说博客是很好的提升方式，除了记录，更重要的是分享，折腾了半天终于算是有了自己的博客，技术是需要沉淀的，接下来会在这里写下一些自己在平时在开发时的积累和感悟，只是希望以这种方式记录一下自己成长的脚印，接触iOS时间并不是很长，大牛路过请一笑置之，谢啦。<br>  搭这个博客折腾了大半天，上网看了看，大部分教程都时间比较久远了，并且有很多都是Windows下的，Mac下就有一些不太一样了，打算记录一下我踩过的坑，希望大家以后再用可以把这些坑绕过去。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/17/Hexo/hexo搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/"
+     data-title="PKPushPayload"
+     data-content=""
+     data-url="http://jpache.com/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -541,6 +381,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/"
+           data-title="PKPushPayload" data-url="http://jpache.com/2016/10/26/AppleDeveloperLibrary/Technologies/CoreServicesLayer/PushKit/PKPushPayload/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -560,8 +408,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -615,6 +472,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#symbols"><span class="nav-number">1.</span> <span class="nav-text">Symbols</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#payload-properties"><span class="nav-number">1.1.</span> <span class="nav-text">Payload properties</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dictionarypayload"><span class="nav-number">1.1.1.</span> <span class="nav-text">dictionaryPayload</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#declaration"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Declaration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#discussion"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Discussion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type"><span class="nav-number">1.1.2.</span> <span class="nav-text">type</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#declaration"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Declaration</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#relationships"><span class="nav-number">2.</span> <span class="nav-text">Relationships</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -718,6 +586,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

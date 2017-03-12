@@ -1,0 +1,682 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="VoIP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近需要用到 Apple 的 VoIP 服务, 上网翻看了一遍, 能用的不多, 更主要的是能看懂的更少…整理之后, 打算在这里记录一下…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS VoIP (VoIP Push)开发集成">
+<meta property="og:url" content="http://jpache.com/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/index.html">
+<meta property="og:site_name" content="Jpache’s blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近需要用到 Apple 的 VoIP 服务, 上网翻看了一遍, 能用的不多, 更主要的是能看懂的更少…整理之后, 打算在这里记录一下…">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af15588cjw1f2144q8efuj20s30ijwhs.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af15588cjw1f20wtxffpuj20v8042aae.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/af15588cjw1f2144pqagrj20rs0kadj0.jpg">
+<meta property="og:updated_time" content="2016-12-09T15:29:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS VoIP (VoIP Push)开发集成">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近需要用到 Apple 的 VoIP 服务, 上网翻看了一遍, 能用的不多, 更主要的是能看懂的更少…整理之后, 打算在这里记录一下…">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/af15588cjw1f2144q8efuj20s30ijwhs.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://jpache.com/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/"/>
+
+
+  <title> iOS VoIP (VoIP Push)开发集成 | Jpache’s blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jpache’s blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">嗨，我是景鹏博。一名 iOS 开发者。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS VoIP (VoIP Push)开发集成
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-18T15:39:06+08:00" content="2016-03-18">
+              2016-03-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6700;&#x8FD1;&#x9700;&#x8981;&#x7528;&#x5230; Apple &#x7684; VoIP &#x670D;&#x52A1;, &#x4E0A;&#x7F51;&#x7FFB;&#x770B;&#x4E86;&#x4E00;&#x904D;, &#x80FD;&#x7528;&#x7684;&#x4E0D;&#x591A;, &#x66F4;&#x4E3B;&#x8981;&#x7684;&#x662F;&#x80FD;&#x770B;&#x61C2;&#x7684;&#x66F4;&#x5C11;&#x2026;&#x6574;&#x7406;&#x4E4B;&#x540E;, &#x6253;&#x7B97;&#x5728;&#x8FD9;&#x91CC;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x2026;</p>
+<a id="more"></a>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;-voip"><a href="#&#x4EC0;&#x4E48;&#x662F;-VoIP" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F; VoIP ?"></a>&#x4EC0;&#x4E48;&#x662F; VoIP ?</h2><p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x8BF4; VoIP &#x662F;&#x7F51;&#x7EDC;&#x7535;&#x8BDD;&#x534F;&#x8BAE;, &#x6CA1;&#x6709;&#x9519;, &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x8BF4;&#x7684; VoIP &#x4E2A;&#x4EBA;&#x7406;&#x89E3;&#x662F; App &#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x79CD;&#x670D;&#x52A1;, &#x5728; iOS 7.0 &#x7684;&#x65F6;&#x5019;, &#x5B83;&#x7528;&#x6765;&#x8BA9; App &#x5728;&#x540E;&#x53F0;&#x4FDD;&#x6301;&#x957F;&#x8FDE;&#x63A5;, &#x5C31;&#x662F;&#x628A;&#x4E00;&#x4E2A; socket &#x6258;&#x7BA1;&#x7ED9;&#x7CFB;&#x7EDF;, &#x4F7F;&#x7CFB;&#x7EDF;&#x6BCF;&#x9694;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5C31;&#x5524;&#x9192;&#x4E00;&#x6B21; App, &#x7ED9; App &#x5927;&#x6982;10&#x79D2;&#x7684;&#x65F6;&#x95F4;&#x53BB;&#x5904;&#x7406;&#x4E00;&#x4E9B;&#x4E8B;&#x60C5;, &#x82F9;&#x679C;&#x5B98;&#x65B9;&#x7ED9;&#x7684;&#x6700;&#x5C0F;&#x65F6;&#x95F4;&#x662F;600&#x79D2;, &#x8FD9;&#x91CC;&#x4E0D;&#x8FC7;&#x591A;&#x4ECB;&#x7ECD;, &#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4ECB;&#x7ECD;&#x7F51;&#x4E0A;&#x8FD8;&#x662F;&#x6709;&#x597D;&#x591A;&#x7684;. </p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x5728; iOS 8.0 &#x4EE5;&#x540E;, &#x82F9;&#x679C;&#x6709;&#x5F15;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x6846;&#x67B6; &#x2014; <font color="#8A2BE2">PushKit</font>, &#x4E00;&#x79CD;&#x65B0;&#x7684; push &#x7C7B;&#x578B;, &#x4E5F;&#x88AB;&#x79F0;&#x4F5C; VoIP Push &#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4ECA;&#x5929;&#x8981;&#x4ECB;&#x7ECD;&#x7684;&#x4E1C;&#x897F;. &#x8BE5; push &#x65B9;&#x5F0F;&#x65E8;&#x5728;&#x63D0;&#x4F9B;&#x533A;&#x522B;&#x4E8E;&#x666E;&#x901A; APNs &#x7684;&#x80FD;&#x529B;, &#x901A;&#x8FC7;&#x8FD9;&#x79CD; push &#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x4F7F; App &#x6267;&#x884C;&#x5236;&#x5B9A;&#x7684;&#x4EE3;&#x7801;(&#x5728;&#x5F39;&#x51FA;&#x901A;&#x77E5;&#x7ED9;&#x7528;&#x6237;&#x4E4B;&#x524D;), &#x800C;&#x8BE5;&#x901A;&#x77E5;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x548C; APNs &#x901A;&#x77E5;&#x6709;&#x6240;&#x533A;&#x522B;, &#x5B83;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x91CC;&#x9762;&#x662F;&#x4E0D;&#x4F1A;&#x5F39;&#x51FA;&#x901A;&#x77E5;&#x7684;. </p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;PushKit &#x4E2D;&#x7684; VoIP Push&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x63D0;&#x5347; VoIP &#x5E94;&#x7528;&#x7684;&#x4F53;&#x9A8C;, &#x964D;&#x4F4E; App &#x7535;&#x91CF;&#x6D88;&#x8017;, VoIP Push &#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x201D;&#x51C6;&#x5B9E;&#x65F6;&#x201D;&#x7684;, &#x5B9E;&#x9645;&#x4E0A;&#x5EF6;&#x8FDF;&#x5728;1&#x79D2;&#x5DE6;&#x53F3;, &#x82F9;&#x679C;&#x63D0;&#x4F9B;&#x4ED6;&#x7684;&#x76EE;&#x7684;, &#x662F;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x629B;&#x5F03;&#x540E;&#x53F0;&#x4FDD;&#x6301;&#x957F;&#x8FDE;&#x63A5;&#x7684;&#x65B9;&#x6848;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;, App &#x4E0D;&#x7528;&#x7EF4;&#x6301;&#x548C; VoIP &#x670D;&#x52A1;&#x5668;&#x7684;&#x957F;&#x8FDE;&#x63A5;. &#x5982;&#x679C;&#x4E00;&#x5207;&#x6B63;&#x5E38;, &#x8BE5;&#x901A;&#x77E5;&#x5728;&#x624B;&#x673A;&#x91CD;&#x542F;&#x3001;&#x5E94;&#x7528;&#x88AB;&#x7CFB;&#x7EDF;&#x56DE;&#x6536;&#x3001;&#x624B;&#x52A8; kill &#x7A0B;&#x5E8F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, App &#x4F9D;&#x7136;&#x80FD;&#x591F;&#x88AB;&#x5524;&#x9192;, &#x4E14;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x7528;&#x6765;&#x6267;&#x884C;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;, &#x6BD4;&#x5982; VoIP &#x6CE8;&#x518C;&#x7B49;.</p>
+<h2 id="pushkit-&#x7684;&#x4F7F;&#x7528;"><a href="#PushKit-&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="PushKit &#x7684;&#x4F7F;&#x7528;"></a>PushKit &#x7684;&#x4F7F;&#x7528;</h2><h3 id="&#x521B;&#x5EFA;-app-id"><a href="#&#x521B;&#x5EFA;-App-ID" class="headerlink" title="&#x521B;&#x5EFA; App ID"></a>&#x521B;&#x5EFA; App ID</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6B64;&#x6B65;&#x9AA4;&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x89E3;&#x91CA;&#x4E86;&#x2026;</p>
+<h3 id="&#x521B;&#x5EFA;-voip-&#x8BC1;&#x4E66;"><a href="#&#x521B;&#x5EFA;-VoIP-&#x8BC1;&#x4E66;" class="headerlink" title="&#x521B;&#x5EFA; VoIP &#x8BC1;&#x4E66;"></a>&#x521B;&#x5EFA; VoIP &#x8BC1;&#x4E66;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x4E0E; APNs &#x4E00;&#x6837;, VoIP Push&#x4E5F;&#x9700;&#x8981;&#x7533;&#x8BF7;&#x8BC1;&#x4E66;, &#x6D41;&#x7A0B;&#x4E5F;&#x57FA;&#x672C;&#x548C; APNs &#x7684;&#x6D41;&#x7A0B;&#x4E00;&#x6837;, &#x53EA;&#x662F;&#x9009;&#x62E9;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;.<br><img src="http://ww2.sinaimg.cn/large/af15588cjw1f2144q8efuj20s30ijwhs.jpg" alt=""></p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x7533;&#x8BF7;&#x8BC1;&#x4E66;&#x540E;, &#x9700;&#x8981;&#x5C06;&#x8BC1;&#x4E66;&#x5BFC;&#x51FA;&#x540E;, &#x751F;&#x6210; .pem &#x683C;&#x5F0F;&#x7684;&#x8BC1;&#x4E66;, &#x7ED9;&#x540E;&#x53F0;&#x4F7F;&#x7528;. <font color="#8A2BE2">&#x6CE8;&#x610F;&#x8981;&#x5C06;&#x4E0B;&#x9762;&#x7684;&#x8BC1;&#x4E66;&#x548C;&#x8BC1;&#x4E66;&#x7684;&#x79D8;&#x94A5;&#x5206;&#x522B;&#x5BFC;&#x51FA;&#x6210; .p12 &#x683C;&#x5F0F;.</font></p>
+<p><img src="http://ww2.sinaimg.cn/large/af15588cjw1f20wtxffpuj20v8042aae.jpg" alt=""></p>
+<h3 id="&#x5C06;&#x8BC1;&#x4E66;&#x8F6C;&#x6362;&#x4E3A;-pem-&#x683C;&#x5F0F;&#x8BC1;&#x4E66;"><a href="#&#x5C06;&#x8BC1;&#x4E66;&#x8F6C;&#x6362;&#x4E3A;-pem-&#x683C;&#x5F0F;&#x8BC1;&#x4E66;" class="headerlink" title="&#x5C06;&#x8BC1;&#x4E66;&#x8F6C;&#x6362;&#x4E3A; .pem &#x683C;&#x5F0F;&#x8BC1;&#x4E66;"></a>&#x5C06;&#x8BC1;&#x4E66;&#x8F6C;&#x6362;&#x4E3A; .pem &#x683C;&#x5F0F;&#x8BC1;&#x4E66;</h3><p>1.&#x5C06;&#x4E24;&#x4E2A;p12&#x6587;&#x4EF6;&#x5206;&#x522B;&#x8F6C;&#x6362;&#x4E3A;pem&#x683C;&#x5F0F;&#x6587;&#x4EF6;.</p>
+<p>&#x6253;&#x5F00;&#x201C;&#x7EC8;&#x7AEF;&#x201D;, &#x6572;&#x5165;&#x547D;&#x4EE4;&#x5373;&#x53EF;&#x8F6C;&#x6362;.</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x4E2A;:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -clcerts -nokeys -out VoIP_cer.pem -in VoIP_cer.p12</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x7B2C;&#x4E8C;&#x4E2A;:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -nocerts -out VoIP_key.pem -in VoIP_key.p12</span><br></pre></td></tr></table></figure>
+<p>&#x6CE8;&#x610F;&#x4F1A;&#x8BA9;&#x4F60;&#x8F93;&#x5165;&#x524D;&#x9762;&#x4F60;&#x5728;&#x94A5;&#x5319;&#x4E32;&#x5BFC;&#x51FA;&#x8BC1;&#x4E66;&#x65F6;&#x7684;&#x5BFC;&#x51FA;&#x5BC6;&#x7801;.</p>
+<p>&#x2002;</p>
+<p>&#x6CE8;: &#x5982;&#x679C;&#x6700;&#x7EC8;&#x7684;pem&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x5BC6;&#x7801;, &#x5219;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x53BB;&#x9664;&#x5BC6;&#x7801;:</p>
+<p>&#x2002;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in VoIP_key.pem -out VoIP_key_nopwd.pem</span><br></pre></td></tr></table></figure>
+<p>&#x6700;&#x540E;&#x4F1A;&#x751F;&#x6210;&#x4E24;&#x4E2A;pem&#x6587;&#x4EF6;, &#x5982;: &#x201C;VoIP_cer.pem&#x201D;&#x3001;&#x201C;VoIP_key.pem&#x201D; &#x6216;&#x8005; &#x201C;VoIP_key_nopwd.pem&#x201D;.</p>
+<p>2.&#x5C06;&#x4E24;&#x4E2A;pem&#x6587;&#x4EF6;&#x5408;&#x5E76;&#x6210;&#x670D;&#x52A1;&#x7AEF;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x7684;&#x4E00;&#x4E2A;pem&#x6587;&#x4EF6;.</p>
+<p>&#x4F9D;&#x7136;&#x662F;&#x547D;&#x4EE4;&#x884C;&#x6267;&#x884C;&#x5373;&#x53EF;:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat VoIP_cer.pem VoIP_key.pem &gt; VoIP_cer_key.pem</span><br></pre></td></tr></table></figure></p>
+<p>&#x6216;&#x8005;&#x4E0D;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x7684;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat VoIP_cer.pem VoIP_key_nopwd.pem &gt; VoIP_cer_key.pem</span><br></pre></td></tr></table></figure>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x6700;&#x7EC8;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4F9B;&#x670D;&#x52A1;&#x7AEF;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x7684;&#x201C;VoIP_cer_key.pem&#x201D;.<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x7136;&#x540E;&#x628A;&#x8FD9;&#x4E2A; .pem &#x7684;&#x8BC1;&#x4E66;&#x63D0;&#x4F9B;&#x7ED9; VoIP &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;.</p>
+<h3 id="&#x6DFB;&#x52A0;&#x4EE3;&#x7801;"><a href="#&#x6DFB;&#x52A0;&#x4EE3;&#x7801;" class="headerlink" title="&#x6DFB;&#x52A0;&#x4EE3;&#x7801;"></a>&#x6DFB;&#x52A0;&#x4EE3;&#x7801;</h3><p>&#x5728;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;&#x4E4B;&#x524D;, &#x9996;&#x5148;&#x786E;&#x8BA4;&#x4F60;&#x5728; info.plist &#x4E2D;&#x6DFB;&#x52A0;&#x4E86; VoIP &#x952E;&#x503C;&#x5BF9;, &#x5982;&#x4E0B;:<br><img src="http://ww1.sinaimg.cn/large/af15588cjw1f2144pqagrj20rs0kadj0.jpg" alt=""><br>&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;&#x4E86;</p>
+<p>1.&#x5728; App &#x542F;&#x52A8;( Appdelegate &#x7684; didfinishlaunchwithoptions ) &#x540E;&#x6216;&#x6839;&#x63A7;&#x5236;&#x5668;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7B49;&#x65B9;&#x6CD5;&#x5185;&#x8C03;&#x7528;&#x5982;&#x4E0B;&#x4EE3;&#x7801;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UIUserNotificationSettings *userNotifySetting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];</span><br><span class="line">[[UIApplication sharedApplication] registerUserNotificationSettings:userNotifySetting];</span><br><span class="line">[[UIApplication sharedApplication] registerForRemoteNotifications];</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];</span><br><span class="line">pushRegistry.delegate = self;</span><br><span class="line">pushRegistry.desiredPushTypes = [NSSet <span class="built_in">set</span>WithObject:PKPushTypeVoIP];</span><br></pre></td></tr></table></figure>
+<p>2.&#x5728; Appdelegate &#x6216;&#x6846;&#x67B6; viewController &#x7C7B;&#x4E2D;&#x5B9E;&#x73B0; VoIP Push &#x7684;&#x4EE3;&#x7406;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials <span class="keyword">for</span>Type:(NSString *)<span class="built_in">type</span> { </span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x662F;&#x8BBE;&#x5907;&#x4ECE;&#x82F9;&#x679C;&#x670D;&#x52A1;&#x5668;&#x83B7;&#x53D6;&#x5230;&#x4E86; VoIP token, &#x7136;&#x540E;&#x4F20;&#x9012;&#x7ED9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;. &#x6211;&#x4EEC;&#x9700;&#x8981;&#x628A;&#x8FD9;&#x4E2A; token &#x4F20;&#x9012;&#x5230; push &#x670D;&#x52A1;&#x5668; (&#x548C; APNs &#x7C7B;&#x4F3C;, &#x6211;&#x4EEC;&#x4E5F;&#x662F;&#x8981;&#x4F20;&#x9012; APNs token &#x5230; push &#x670D;&#x52A1;&#x5668; ,&#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x4E2A; token &#x7684;&#x83B7;&#x53D6;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;, &#x5206;&#x522B;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x4E2D;&#x56DE;&#x8C03;&#x7ED9;&#x5E94;&#x7528;, &#x4E14;&#x8FD9;&#x4E24;&#x4E2A; token &#x7684;&#x5185;&#x5BB9;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x7684;)</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x83B7;&#x53D6;&#x5230;&#x7684; token &#x662F; NSData &#x7C7B;&#x578B;, &#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x4E00;&#x4E9B;&#x5904;&#x7406;, &#x5C06;&#x8FD9;&#x4E2A; data &#x7C7B;&#x578B;&#x8F6C;&#x6210;NSString, &#x89C4;&#x5219;&#x662F;&#x5C06;&lt;&gt;&#x548C;&#x7A7A;&#x683C;&#x90FD;&#x53BB;&#x6389;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;. &#x65B9;&#x6CD5;&#x5982;&#x4E0B;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString * tokenString = [[[[credentials.token description] stringByReplacingOccurrencesOfString: @<span class="string">&quot;&lt;&quot;</span> withString: @<span class="string">&quot;&quot;</span>] stringByReplacingOccurrencesOfString: @<span class="string">&quot;&gt;&quot;</span> withString: @<span class="string">&quot;&quot;</span>] stringByReplacingOccurrencesOfString: @<span class="string">&quot; &quot;</span> withString: @&#x201C;<span class="string">&quot;];</span></span><br></pre></td></tr></table></figure>
+<p>&#x5904;&#x7406;&#x4E4B;&#x540E;&#x7684; token &#x662F;&#x4E00;&#x4E2A;64&#x4F4D;&#x7684;16&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;.</p>
+<p>3.&#x5982;&#x679C;&#x8FD9;&#x662F; Push &#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;&#x63A5;&#x6536;&#x5230;&#x4E86;&#x4F60;&#x7684; VoIP Push token, &#x5728;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x6765;&#x81EA; Push &#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;&#x4E86;, &#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x505A;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;, &#x6BD4;&#x5982;&#x53D1;&#x4E2A;&#x672C;&#x5730;&#x901A;&#x77E5;, &#x54CD;&#x94C3;, &#x7B49;&#x7B49;. &#x7528;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x63A5;&#x6536; VoIP Push:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload <span class="keyword">for</span>Type:(NSString *)<span class="built_in">type</span> { </span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x53C2;&#x6570; payload &#x4E2D;&#x7684; dictionaryPayload &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x7C7B;&#x578B;, &#x5C31;&#x662F;&#x6211;&#x4EEC; VoIP Push &#x7684;&#x53C2;&#x6570;.<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;, &#x5728;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x5728;&#x624B;&#x673A;&#x91CD;&#x542F;&#x3001;&#x5E94;&#x7528;&#x88AB;&#x7CFB;&#x7EDF;&#x56DE;&#x6536;&#x3001;&#x624B;&#x52A8;kill&#x7A0B;&#x5E8F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x4F9D;&#x7136;&#x80FD;&#x591F;&#x88AB;&#x89E6;&#x53D1;, &#x4E14;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;(&#x5927;&#x6982;10&#x79D2;&#x5DE6;&#x53F3;, &#x53EF;&#x80FD;&#x6709;&#x65F6;&#x4F1A;&#x6BD4;10&#x79D2;&#x5C11;&#x4E00;&#x70B9;)&#x7528;&#x6765;&#x6267;&#x884C;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;(&#x6BD4;&#x5982; VoIP &#x6CE8;&#x518C;&#x7B49;)</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#x53E6;&#x5916;, VoIP Push &#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55; UI &#x4E0A;&#x7684;&#x63D0;&#x793A;, &#x6240;&#x4EE5;&#x5B83;&#x66F4;&#x50CF;&#x662F;&#x4E00;&#x4E2A; content-available pushes, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x5904;&#x7406;.</p>
+<p>&#x4E4B;&#x524D;&#x82F9;&#x679C;&#x662F;&#x63D0;&#x4F9B;&#x4E86;&#x5F00;&#x53D1;&#x6587;&#x6863;&#x7684;, &#x540E;&#x6765;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x5C31;&#x6CA1;&#x6709;&#x4E86;, &#x73B0;&#x5728;&#x53EA;&#x6709;API&#x6587;&#x6863;&#x53EF;&#x4EE5;&#x770B;&#x4E86;.</p>
+<p>Apple Developer Library: <a href="https://developer.apple.com/reference/pushkit" target="_blank" rel="external">https://developer.apple.com/reference/pushkit</a></p>
+<p>&#x6211;&#x81EA;&#x5DF1;&#x770B;&#x6587;&#x6863;&#x65F6;&#x5019;&#x7FFB;&#x8BD1;&#x7684;: <a href="http://jpache.com/tags/PushKit/">http://jpache.com/tags/PushKit/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VoIP/" rel="tag">#VoIP</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/17/Hexo/hexo搭建/" rel="next" title="Hexo搭建">
+                <i class="fa fa-chevron-left"></i> Hexo搭建
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/06/iOS/UI/自定义 TabBarController 封装/" rel="prev" title="自定义 TabBarController 封装">
+                自定义 TabBarController 封装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/"
+     data-title="iOS VoIP (VoIP Push)开发集成"
+     data-content=""
+     data-url="http://jpache.com/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/"
+           data-title="iOS VoIP (VoIP Push)开发集成" data-url="http://jpache.com/2016/03/18/iOS/ServicesLayer/iOS-VoIP-VoIP-Push-开发集成/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jpache" />
+          <p class="site-author-name" itemprop="name">Jpache</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JpacheGitHub" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-voip"><span class="nav-number">1.</span> <span class="nav-text">什么是 VoIP ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushkit-的使用"><span class="nav-number">2.</span> <span class="nav-text">PushKit 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-app-id"><span class="nav-number">2.1.</span> <span class="nav-text">创建 App ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-voip-证书"><span class="nav-number">2.2.</span> <span class="nav-text">创建 VoIP 证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将证书转换为-pem-格式证书"><span class="nav-number">2.3.</span> <span class="nav-text">将证书转换为 .pem 格式证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加代码"><span class="nav-number">2.4.</span> <span class="nav-text">添加代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jpache</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jpache"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
