@@ -239,6 +239,119 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/14/基础/数据结构算法/二分法查找-Binary-Search/" itemprop="url">
+                  二分法查找 (Binary Search)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-14T09:59:45+08:00" content="2017-03-14">
+              2017-03-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/14/基础/数据结构算法/二分法查找-Binary-Search/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/14/基础/数据结构算法/二分法查找-Binary-Search/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h1><p>二分法查找主要是用来解决”在一堆数中找出指定数”的问题, 而想用二分法查找, 这”一堆数”必须有一下特征:</p>
+<ul>
+<li>储存在数组中</li>
+<li>有序排列</li>
+</ul>
+<p>二分法其实就是使用<code>分治法</code>进行折半查找. 查找的时间复杂度为O(logⁿ)也让其成为效率较高的一种算法. 不过它的缺陷也是明显的, 就是在它的限定之上:</p>
+<ul>
+<li>必须有序, 我们很难保证我们的数组都是有序的. 当然可以在构建数组的时候进行排序.</li>
+<li>第一个问题可能解决了, 可是又落到了第二个瓶颈上: 它必须是数组. 如果是用链表存储的, 就不能使用二分法查找了</li>
+</ul>
+<p>数组读取效率是O(1), 可是它的插入和删除某个元素的效率却是O(n), 因而导致构建有序数组变成低效的事情.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/14/基础/数据结构算法/二分法查找-Binary-Search/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/12/基础/数据结构算法/快速排序-Quick-sort/" itemprop="url">
                   快速排序 (Quick sort)
                 </a>
@@ -1146,109 +1259,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/08/Hexo/使用Hexo博客时一些BUG整合/" itemprop="url">
-                  使用Hexo博客时一些错误整合
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-08T01:52:29+08:00" content="2016-05-08">
-              2016-05-08
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/08/Hexo/使用Hexo博客时一些BUG整合/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/Hexo/使用Hexo博客时一些BUG整合/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这里会整合一些在使用 Hexo 博客是的一些错误, 尽可能详细的提供解决方法.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/08/Hexo/使用Hexo博客时一些BUG整合/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1294,7 +1304,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
